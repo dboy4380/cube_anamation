@@ -2,8 +2,10 @@
   --back-color: #000;
   --first-cube-color: blue;
   --second-cube-color: #151515;
-  --first-top-color: #2f303a;
+  --first-top-color: #2196f3;
+  --second-top-color: #2f303a;
   --shadow-color: blue;
+  --icon-color: #fff;
 }
 
 * {
@@ -25,7 +27,7 @@ body {
   width: 300px;
   height: 300px;
   transform-style: preserve-3d;
-  animation: animate 4s linear infinite;
+  animation: animate 10s linear infinite;
 }
 
 @keyframes animate {
@@ -60,6 +62,10 @@ body {
   /* 300 / 2 = 150*/
 }
 
+.cube:hover .top {
+  background: var(--second-top-color);
+}
+
 .top {
   position: absolute;
   top: 0;
@@ -68,6 +74,7 @@ body {
   height: 300px;
   background: var(--first-top-color);
   transform: rotateX(90deg) translateZ(150px);
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top::before {
@@ -83,4 +90,22 @@ body {
   box-shadow: 0 0 120px rgba(0, 0, 225, 2), 0 0 200px rgba(0, 0, 225, 4),
     0 0 200px rgba(0, 0, 225, 4), 0 0 300px rgba(0, 0, 225, 6),
     0 0 400px rgba(0, 0, 225, 8), 0 0 500px rgba(0, 0, 225, 1);
+}
+
+.top-text {
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.87;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.top-icon {
+  fill: var(--icon-color);
+  position: absolute;
+  top: 61px;
+  left: 80px;
 }
